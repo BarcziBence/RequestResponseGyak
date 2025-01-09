@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Request, Response Gyak</title>
+</head>
+<body>
+    <div class="control-con">
+        <div class="mod-con">
+            <div class="control-element">
+                <label for="findDel-id">Elem keresése/törlése:</label>
+                <input type="text" id="findDelId">
+            </div>
+            <div class="control-element">
+                <select name="findDel" id="findDel">
+                    <option value="Select">Kiválasztás</option>
+                    <option value="Delete">Törlés</option>
+                </select>
+                <button onclick="FindOrDelete()">Futtatás</button>
+            </div>
+        </div>
+        <div class="mod-con">
+            <h3>Elem hozzáadása/módosítása</h3>
+            <div class="control-element">
+                <label for="UUID">UUID: </label>
+                <input type="text" id="UUID" name="UUID">
+            </div>
+            <div class="control-element">
+                <label for="Name">Név: </label>
+                <input type="text" id="Name" name="Name">
+            </div>
+            <div class="control-element">
+                <label for="Version">Verzió: </label>
+                <input type="text" id="Version" name="Version">
+            </div>
+            <div class="control-element">
+                <label for="Released">Kiadva:</label>
+                <input type="text" id="Released" name="Released">
+            </div>
+            <div class="control-element">
+                <label for="Desc">Leírás</label>
+                <textarea type="text" id="Desc" name="Desc"></textarea>
+            </div>
+            <div class="control-element">
+                <label for="Lang">Nyelv:</label>
+                <input type="text" id="Lang" name="Lang">
+            </div>
+            <div class="control-element">
+                <label for="Params">Paraméterek:</label>
+                <input type="text" id="UUID" name="UUID">
+            </div>
+            <div class="control-element">
+                <label for="FuncBody">Függvénytörzs:</label>
+                <textarea id="FuncBody" name="FuncBody"></textarea>
+            </div>
+            <div class="control-element">
+                <select name="findDel" id="CreateOrModify">
+                    <option value="Create">Létrehozás</option>
+                    <option value="Modify">Módosítás</option>
+                </select>
+                <button onclick="CreateOrModify()">Futtatás</button>
+            </div>
+        </div>
+        <div class="control-element">
+            <button style="margin-bottom: 3%;" onclick="UpdateTable()">Frissítés</button>
+        </div>
+    </div>
+
+    <button onclick="CreateCheck('55db60bf-72bc-400f-b498-23ec72f638ad', 'Aaaaaa', '0.2', 'AAAAAAAAAAAAAAA', 'indian', ['amount_1: int', 'amount_2: int'], 'AAAA')">aaaaa</button>
+    <button onclick="GetChecks()">bbbb</button>
+
+
+
+    <table id="Tatatatable">
+        <tr>
+            <th>UUID</th>
+            <th>Name</th>
+            <th>Version</th>
+            <th>Description</th>
+            <th>Language</th>
+            <th>Parameters</th>
+            <th>Function body</th>
+        </tr>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
