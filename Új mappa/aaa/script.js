@@ -22,7 +22,7 @@ async function GetCheck(id){
     .then(data=>{ console.log(data); })
 }
 
-async function CreateCheck(id, name, version, description, lang, params, func_body){
+async function CreateCheck(id, name, version, description, release, lang, params, func_body){
     await fetch("http://localhost:8080/checks/",
         {
             method: "POST",
@@ -34,6 +34,7 @@ async function CreateCheck(id, name, version, description, lang, params, func_bo
                 "uuid": id,
                 "name": name,
                 "version": version,
+                "release" : release,
                 "description": description,
                 "lang": lang,
                 "params": params,
@@ -44,7 +45,7 @@ async function CreateCheck(id, name, version, description, lang, params, func_bo
     
 }
 
-async function UpdateCheck(id, name, version, description, lang, params, func_body){
+async function UpdateCheck(id, name, version, release, description, lang, params, func_body){
     await fetch("http://localhost:8080/checks/" + id,
         {
             method: "POST",
@@ -55,6 +56,7 @@ async function UpdateCheck(id, name, version, description, lang, params, func_bo
             body: JSON.stringify({
                 "name": name,
                 "version": version,
+                "release" : release,
                 "description": description,
                 "lang": lang,
                 "params": params,
@@ -106,12 +108,11 @@ function FindOrDelete(){
 }
 
 function CreateOrModify(){
-    let option = document.getElementById("CreateOrModify").option
-
+    let option = document.getElementById("CreateOrModify").value
     if(option == "Create"){
-
+        CreateCheck(document.getElementById("UUID").value, document.getElementById("Name").value, document.getElementById("Version").value, document.getElementById("Released").value, document.getElementById("Desc").value, document.getElementById("Lang").value, document.getElementById("Params").value, document.getElementById("FuncBody").value);
     }
     else if (option == "Modify"){
-
+        UpdateCheck(document.getElementById("UUID").value, document.getElementById("Name").value, document.getElementById("Version").value, document.getElementById("Released").value, document.getElementById("Desc").value, document.getElementById("Lang").value, document.getElementById("Params").value, document.getElementById("FuncBody").value);
     }
 }
